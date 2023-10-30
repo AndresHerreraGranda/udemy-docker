@@ -11,4 +11,5 @@
 - docker ps //lista contenedores 
 - docker ps -a //lista todo contenedores imagenes
 - docker run -d --name (name-conteiner) -p 80:80 (name-imagen) // ejecuta un contenedor apartir de la imagen, d corra por debajo, --name nombre del contenedor, -p puerto
+- docker logs (name-conteiner)  //Permite ver los logs del contenedor
 

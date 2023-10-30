@@ -25,6 +25,21 @@ VOLUME [ "/sys/fs/cgroup" ]
 
 EXPOSE 8080
 
+#guardar usuario actual en html
+RUN echo "$(whoami)" > ./user1.html
+#crear nuevo usuario en la imagen 
+RUN useradd andres
+#dar permisos de admin
+RUN chown andres .
+#establecer usuario en la imagen 
+USER andres
+#guardar usuario actual en html
+RUN echo "$(whoami)" > /tmp/user2.html
+#establecer usuario root nuevamente para poder escribir como administrador
+USER root
+#ya que es si puede copiar como administrador agregarlo en la ruta apache www
+RUN cp /tmp/user2.html /var/www/html/user2.html
+
 #ejecutar apache en primer plano
 CMD apachectl -DFOREGROUND 
 #["/usr/sbin/init"]
