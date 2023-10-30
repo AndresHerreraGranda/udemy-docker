@@ -1,6 +1,11 @@
 FROM centos:7
 ENV container docker
 
+#agregar metadata
+LABEL version=1.0
+LABEL description="This is an apache imagen"
+LABEL vendor="andres"
+
 #Instalar apache
 RUN yum install httpd -y; 
 
