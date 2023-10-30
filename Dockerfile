@@ -18,6 +18,8 @@ RUN echo "$variable" > ./variable.html
 
 VOLUME [ "/sys/fs/cgroup" ]
 
+EXPOSE 8080
+
 #ejecutar apache en primer plano
 CMD apachectl -DFOREGROUND 
 #["/usr/sbin/init"]
