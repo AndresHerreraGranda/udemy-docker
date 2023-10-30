@@ -21,6 +21,8 @@ ENV variable "esto es una variable de entorno"
 #crear un html con esta varible en el directorio especificado teniendo encuenta el WORKDIR
 RUN echo "$variable" > ./variable.html
 
+#Colocar data persistente en el contenedor, para que cuando se elimine permanezca
+VOLUME [ "/var/www/html" ]
 VOLUME [ "/sys/fs/cgroup" ]
 
 EXPOSE 8080
