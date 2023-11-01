@@ -42,6 +42,8 @@ USER root
 #ya que es si puede copiar como administrador agregarlo en la ruta apache www
 RUN cp /tmp/user2.html /var/www/html/user2.html
 
-#ejecutar apache en primer plano
-CMD apachectl -DFOREGROUND 
+COPY /web/run.sh /run.sh
+
+#ejecutar una ves el contenedor se ha iniciado a diferencia de run que se utiliza para crear la imagen 
+CMD sh /run.sh 
 #["/usr/sbin/init"]
